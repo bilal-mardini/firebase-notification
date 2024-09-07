@@ -49,13 +49,7 @@ Publish the configuration file to set up your Firebase credentials:
 php artisan vendor:publish --provider="BilalMardini\FirebaseNotification\Providers\FirebaseNotificationServiceProvider"
 ```
 
-### Running Migrations
 
-After adding the `device_token` column to the users table, run the migrations:
-
-```bash
-php artisan migrate
-```
 
 ## Configuration
 
