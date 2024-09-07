@@ -4,7 +4,6 @@
 
 [![Packagist Downloads](https://img.shields.io/packagist/dt/bilalmardini/firebase-notification)](https://packagist.org/packages/bilalmardini/firebase-notification)
 [![Latest Version](https://img.shields.io/packagist/v/bilalmardini/firebase-notification)](https://packagist.org/packages/bilalmardini/firebase-notification)
-[![License](https://img.shields.io/github/license/bilalmardini/firebase-notification)](https://github.com/bilalmardini/firebase-notification/blob/main/LICENSE)
 
 ## Overview
 
