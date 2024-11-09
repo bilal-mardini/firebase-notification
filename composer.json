@@ -1,0 +1,46 @@
+{
+    "name": "bilalmardini/firebase-notification",
+    "description": "Laravel Firebase Notification is a robust and user-friendly package designed to integrate Firebase Cloud Messaging (FCM) with Laravel applications. This package streamlines the process of sending notifications to users through Firebase, supporting various notification targeting options and customization features.",
+    "keywords": [
+        "firebase",
+        "notifications",
+        "push notifications",
+        "firebase cloud messaging",
+        "notification service",
+        "php firebase",
+        "firebase integration",
+        "notification library",
+        "firebase php",
+        "laravel",
+        "laravel notifications",
+        "laravel firebase",
+        "laravel push notifications"
+    ],
+    "type": "library",
+    "require": {
+        "google/auth": "^1.41"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BilalMardini\\FirebaseNotification\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "bilal.mardini1999",
+            "email": "bilal.mardini1999@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BilalMardini\\FirebaseNotification\\Providers\\FirebaseNotificationServiceProvider"
+            ]
+        }
+    }
+}
