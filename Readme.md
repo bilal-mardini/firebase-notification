@@ -1,6 +1,7 @@
 # Laravel Firebase Notification
 
-![Package Image](https://github.com/user-attachments/assets/4e372a8e-2e59-47b0-ba18-3f635762a8d6)
+![Package Image](https://github.com/user-attachments/assets/7a4cece0-f86a-4b40-8a6f-5f1ec533edae)
+
 
 [![Packagist Downloads](https://img.shields.io/packagist/dt/bilalmardini/firebase-notification)](https://packagist.org/packages/bilalmardini/firebase-notification)
 [![Latest Version](https://img.shields.io/packagist/v/bilalmardini/firebase-notification)](https://packagist.org/packages/bilalmardini/firebase-notification)
@@ -12,7 +13,6 @@
 ## Features
 
 - **Push Notifications**: Send notifications via Firebase Cloud Messaging (FCM).
-- **Multi-language Support**: Easy localization (e.g., English, Arabic).
 - **Topic-Based Notifications**: Broadcast messages to subscribers.
 - **User-Specific Notifications**: Send personalized messages.
 - **Custom Payloads**: Include icons, titles, bodies, and additional data.
