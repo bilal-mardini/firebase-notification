@@ -127,9 +127,7 @@ class PromotionNotificationController extends Controller
      */
     public function sendPromotionNotification()
     {
-        $eligibleUsers = User::whereNotNull('device_token')
-                            ->where('is_eligible_for_promo', true)
-                            ->get();
+        $eligibleUsers = User::where('is_eligible_for_promo', true)->get();
 
         $result = FirebaseNotification::setTitle('Exclusive Promotion Just for You!')
                      ->setBody('Unlock your special offer now. Limited time only!')
