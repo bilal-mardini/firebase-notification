@@ -235,7 +235,6 @@ class UserFcmToken extends Model
 If you have any questions or need further assistance, you can reach out through the following channels:
 
 - **GitHub Issues**: [Submit an issue](https://github.com/bilal-mardini/firebase-notification/issues) for bug reports, feature requests, or general questions.
-- **GitHub Discussions**: Engage with the community and ask questions in our [[Discussions](https://github.com/bilal-mardini/firebase-notification/discussions)].
 - **Email**: For direct inquiries, you can contact us at [bilal.mardini1999@gmail.com](mailto:bilal.mardini1999@gmail.com).
 
 We appreciate your interest in our project and your contributions. Thank you for being a part of the Laravel Firebase Notification community!
