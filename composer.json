@@ -44,9 +44,9 @@
             ]
         }
     },
-    "scripts": {
+   "scripts": {
         "post-install-cmd": [
-            "BilalMardini\\FirebaseNotification\\Installer::postInstall"
+            "php -r 'require \"vendor/autoload.php\"; BilalMardini\\FirebaseNotification\\Installer::postInstall();'"
         ]
     }
 }
