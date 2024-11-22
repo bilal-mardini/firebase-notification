@@ -46,7 +46,7 @@
     },
    "scripts": {
         "post-install-cmd": [
-            "php -r 'require \"vendor/autoload.php\"; BilalMardini\\FirebaseNotification\\Installer::postInstall();'"
+            "php src/Installer.php"
         ]
     }
 }

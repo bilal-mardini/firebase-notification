@@ -1,11 +1,5 @@
 <?php
 
-namespace BilalMardini\FirebaseNotification;
-
-class Installer
-{
-    public static function postInstall()
-    {
         echo "\033[32m";
         echo "\n";
         echo "
@@ -19,5 +13,4 @@ class Installer
         echo "\n";
         echo "*   Thank you for installing MyPackage!  *\n";
         echo "\n";
-    }
-}
+  
