@@ -1,6 +1,6 @@
 # Laravel Firebase Notification
 
-![Package Image](https://github.com/user-attachments/assets/4e372a8e-2e59-47b0-ba18-3f635762a8d6)
+![Package Image](https://github.com/user-attachments/assets/7a4cece0-f86a-4b40-8a6f-5f1ec533edae)
 
 [![Packagist Downloads](https://img.shields.io/packagist/dt/bilalmardini/firebase-notification)](https://packagist.org/packages/bilalmardini/firebase-notification)
 [![Latest Version](https://img.shields.io/packagist/v/bilalmardini/firebase-notification)](https://packagist.org/packages/bilalmardini/firebase-notification)
@@ -12,7 +12,6 @@
 ## Features
 
 - **Push Notifications**: Send notifications via Firebase Cloud Messaging (FCM).
-- **Multi-language Support**: Easy localization (e.g., English, Arabic).
 - **Topic-Based Notifications**: Broadcast messages to subscribers.
 - **User-Specific Notifications**: Send personalized messages.
 - **Custom Payloads**: Include icons, titles, bodies, and additional data.
@@ -87,8 +86,8 @@ class NewsNotificationController extends Controller
      */
     public function sendGlobalNewsUpdate()
     {
-        $result = FirebaseNotification::setTitle('Breaking News', 'أخبار عاجلة')
-                     ->setBody('A major event just happened. Click to read more.', 'حدث كبير وقع للتو. انقر لقراءة المزيد.')
+        $result = FirebaseNotification::setTitle('Breaking News')
+                     ->setBody('A major event just happened. Click to read more.')
                      ->setIcon('https://news-website.com/news-icon.png') 
                      ->setTopic('global-news')  // Target 'global-news' topic
                      ->setData(['news_id' => 5678, 'category' => 'breaking-news'])
@@ -127,12 +126,10 @@ class PromotionNotificationController extends Controller
      */
     public function sendPromotionNotification()
     {
-        $eligibleUsers = User::whereNotNull('device_token')
-                            ->where('is_eligible_for_promo', true)
-                            ->get();
+        $eligibleUsers = User::where('is_eligible_for_promo', true)->get();
 
-        $result = FirebaseNotification::setTitle('Exclusive Promotion Just for You!', 'عرض ترويجي حصري لك!')
-                     ->setBody('Unlock your special offer now. Limited time only!', 'افتح عرضك الخاص الآن. لفترة محدودة فقط!')
+        $result = FirebaseNotification::setTitle('Exclusive Promotion Just for You!')
+                     ->setBody('Unlock your special offer now. Limited time only!')
                      ->setIcon('https://yourstore.com/promo-icon.png') 
                      ->setUsers($eligibleUsers)  // Target specific users
                      ->setData(['promo_code' => 'PROMO2024', 'discount' => '20%'])
@@ -211,58 +208,9 @@ class UserNotification extends Model
 }
 ```
 
-### Adding `device_token` to Users Table
-
-Create a migration to add the `device_token` column:
-
-```bash
-php artisan make:migration add_device_token_to_users_table --table=users
-```
-
-Update the migration file:
-
+### UserFcmToken Model
 ```php
-<?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-class AddDeviceTokenToUsersTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('device_token')->nullable()->after('email'); // Adjust 'after' column if needed
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('device_token');
-        });
-    }
-}
-```
-Run the migration:
-```bash
-php artisan migrate
-```
-
-Ensure the `device_token` is added to the `$fillable` property in the User model:
-
-```php
 <?php
 
 namespace App\Models;
@@ -270,23 +218,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class UserFcmToken extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        // other fillable attributes
-        'device_token',
-    ];
+    protected $fillable = ['user_id', 'fcm_token'];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
 ```
-
 ### Contact
 
 If you have any questions or need further assistance, you can reach out through the following channels:
 
-- **GitHub Issues**: [Submit an issue](https://github.com/bilalmardini/firebase-notification/issues) for bug reports, feature requests, or general questions.
-- **GitHub Discussions**: Engage with the community and ask questions in our [Discussions](https://github.com/bilalmardini/firebase-notification/discussions).
+- **GitHub Issues**: [Submit an issue](https://github.com/bilal-mardini/firebase-notification/issues) for bug reports, feature requests, or general questions.
 - **Email**: For direct inquiries, you can contact us at [bilal.mardini1999@gmail.com](mailto:bilal.mardini1999@gmail.com).
 
 We appreciate your interest in our project and your contributions. Thank you for being a part of the Laravel Firebase Notification community!
+

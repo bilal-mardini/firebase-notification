@@ -42,5 +42,10 @@
                 "BilalMardini\\FirebaseNotification\\Providers\\FirebaseNotificationServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "BilalMardini\\FirebaseNotification\\Installer::postInstall"
+        ]
     }
 }
