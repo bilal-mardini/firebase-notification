@@ -27,6 +27,7 @@
     "autoload": {
         "psr-4": {
             "BilalMardini\\FirebaseNotification\\": "src/"
+
         }
     },
     "minimum-stability": "dev",
