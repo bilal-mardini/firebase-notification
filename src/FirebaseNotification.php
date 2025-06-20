@@ -97,6 +97,10 @@ class FirebaseNotification
     private function buildPayload(string $token): array
     {
         $message = [
+            'notification' => [
+                'title' => $this->title,
+                'body' => $this->body,
+            ],
             'data' => [
                 'title' => $this->title,
                 'body' => $this->body,
