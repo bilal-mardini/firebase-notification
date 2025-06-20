@@ -1,4 +1,5 @@
 <?php
+
 namespace BilalMardini\FirebaseNotification;
 
 use App\Models\User;
@@ -99,7 +100,7 @@ class FirebaseNotification
             'data' => [
                 'title' => $this->title,
                 'body' => $this->body,
-                'additional_data'=>$this->data
+                'additional_data' => !empty($this->data) ? json_encode($this->data) : null
             ],
             'android' => [
                 'notification' => [
